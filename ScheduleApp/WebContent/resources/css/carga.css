@@ -1,0 +1,161 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 200;
+  line-height: 1.5;
+  color: #333;
+  text-align: left;
+  background-color: white; }
+
+
+$baseSize: 12px;
+$strokeW: 8px;
+$numOfTriangles: 13;
+$size: $baseSize + $strokeW*2 * ($numOfTriangles - 1);
+
+$triangleAT: 4s;
+$triangleStagger: $triangleAT / $numOfTriangles * 0.3;
+
+.base-triangle {
+  overflow: visible;
+  z-index: -1000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0; }
+  .base-triangle symbol {
+    overflow: visible; }
+  .base-triangle path {
+    fill: none;
+    stroke: #fe0000;
+    stroke-width: 8px;
+    vector-effect: non-scaling-stroke; }
+
+.triangles-cont {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 204px;
+  height: 204px;
+  margin-left: -102px;
+  margin-top: -102px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px; }
+
+.triangle {
+  overflow: visible;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%; }
+  .triangle:nth-child(1) {
+    width: 204px;
+    height: 204px;
+    margin-left: -102px;
+    margin-top: -102px;
+    -webkit-animation: triangleRotation 4s 0.09231s infinite ease-out;
+            animation: triangleRotation 4s 0.09231s infinite ease-out; }
+  .triangle:nth-child(2) {
+    width: 188px;
+    height: 188px;
+    margin-left: -94px;
+    margin-top: -94px;
+    -webkit-animation: triangleRotation 4s 0.18462s infinite ease-out;
+            animation: triangleRotation 4s 0.18462s infinite ease-out; }
+  .triangle:nth-child(3) {
+    width: 172px;
+    height: 172px;
+    margin-left: -86px;
+    margin-top: -86px;
+    -webkit-animation: triangleRotation 4s 0.27692s infinite ease-out;
+            animation: triangleRotation 4s 0.27692s infinite ease-out; }
+  .triangle:nth-child(4) {
+    width: 156px;
+    height: 156px;
+    margin-left: -78px;
+    margin-top: -78px;
+    -webkit-animation: triangleRotation 4s 0.36923s infinite ease-out;
+            animation: triangleRotation 4s 0.36923s infinite ease-out; }
+  .triangle:nth-child(5) {
+    width: 140px;
+    height: 140px;
+    margin-left: -70px;
+    margin-top: -70px;
+    -webkit-animation: triangleRotation 4s 0.46154s infinite ease-out;
+            animation: triangleRotation 4s 0.46154s infinite ease-out; }
+  .triangle:nth-child(6) {
+    width: 124px;
+    height: 124px;
+    margin-left: -62px;
+    margin-top: -62px;
+    -webkit-animation: triangleRotation 4s 0.55385s infinite ease-out;
+            animation: triangleRotation 4s 0.55385s infinite ease-out; }
+  .triangle:nth-child(7) {
+    width: 108px;
+    height: 108px;
+    margin-left: -54px;
+    margin-top: -54px;
+    -webkit-animation: triangleRotation 4s 0.64615s infinite ease-out;
+            animation: triangleRotation 4s 0.64615s infinite ease-out; }
+  .triangle:nth-child(8) {
+    width: 92px;
+    height: 92px;
+    margin-left: -46px;
+    margin-top: -46px;
+    -webkit-animation: triangleRotation 4s 0.73846s infinite ease-out;
+            animation: triangleRotation 4s 0.73846s infinite ease-out; }
+  .triangle:nth-child(9) {
+    width: 76px;
+    height: 76px;
+    margin-left: -38px;
+    margin-top: -38px;
+    -webkit-animation: triangleRotation 4s 0.83077s infinite ease-out;
+            animation: triangleRotation 4s 0.83077s infinite ease-out; }
+  .triangle:nth-child(10) {
+    width: 60px;
+    height: 60px;
+    margin-left: -30px;
+    margin-top: -30px;
+    -webkit-animation: triangleRotation 4s 0.92308s infinite ease-out;
+            animation: triangleRotation 4s 0.92308s infinite ease-out; }
+  .triangle:nth-child(11) {
+    width: 44px;
+    height: 44px;
+    margin-left: -22px;
+    margin-top: -22px;
+    -webkit-animation: triangleRotation 4s 1.01538s infinite ease-out;
+            animation: triangleRotation 4s 1.01538s infinite ease-out; }
+  .triangle:nth-child(12) {
+    width: 28px;
+    height: 28px;
+    margin-left: -14px;
+    margin-top: -14px;
+    -webkit-animation: triangleRotation 4s 1.10769s infinite ease-out;
+            animation: triangleRotation 4s 1.10769s infinite ease-out; }
+  .triangle:nth-child(13) {
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    margin-top: -6px;
+    -webkit-animation: triangleRotation 4s 1.2s infinite ease-out;
+            animation: triangleRotation 4s 1.2s infinite ease-out; }
+
+ .text-center {
+  text-align: center !important; }
+
+@-webkit-keyframes triangleRotation {
+  70%, 100% {
+    -webkit-transform: rotateX(-360deg);
+            transform: rotateX(-360deg); } }
+
+@keyframes triangleRotation {
+  70%, 100% {
+    -webkit-transform: rotateX(-360deg);
+            transform: rotateX(-360deg); } }

@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	color:white;
+    background-color: white;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+body::-webkit-scrollbar {
+    width: 0.7rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #131B22;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+
+.intro{
+    text-align: c;
+    color: black;
+    width: 85%;
+    margin: auto;
+    padding: 150px 10px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 50px;
+}
+
+a{
+    
+    color:black;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.container{
+    width: 100%;
+    margin: auto;
+}
+
+/* Navegation style */
+
+.nav-main {
+    background-color:#C8E8F6;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 20px 10px;
+}
+
+.nav-brand {
+
+    width: 60px;
+
+}
+
+.nav-main ul{
+    display: flex;
+}
+
+.nav-main ul li{
+    
+    padding: 15px;
+}
+
+.nav-main ul li:hover{
+    background-color: white;
+}
+
+.nav-main ul li.buscar:hover{
+    background-color: #C8E8F6;
+}
+.nav-main ul li.login:hover{
+    background-color: #C8E8F6;
+}
+
+.nav-main ul.nav-menu{
+    flex: 1;
+    margin-left: 20px;
+    
+}
+
+.loger{
+    color: white;
+    background-color:#414141;
+    padding: 10px 10px;
+    border-radius: 10%;
+}
+
+.loger:hover{
+    color: black;
+    background-color:#D0D0D0;
+}
+
+.backimg{
+	background-image: url('../img/enfermera.jpg');
+}

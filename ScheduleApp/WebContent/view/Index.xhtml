@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>ScheduleApp</title>
+
+	<h:outputStylesheet library="css" name="index.css" />
+</h:head>
+
+<h:body>
+	<div class="container">
+		<nav class="nav-main">
+
+			<ul class="nav-menu">
+				<li class="login"><a class="loger" href="#">login</a></li>
+			</ul>
+
+			<ul class="nav-menu-right">
+				<li><a href="#">Inicio</a></li>
+				<li><a href="#">Nosotros</a></li>
+				<li><a href="#">Contactos</a></li>
+				<li class="buscar"><a href="#"> <i class="fas fa-search"></i>
+				</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div>
+
+		<h2 class="intro">ScheduleApp - PyramidTech</h2>
+
+	</div>
+	
+	<h:form>
+		<p:panelGrid>
+			<p:spacer width="180" height="10" />
+			<p:outputLabel for="txtUsuario" value="Usuario" style="color: black"/>
+			<p:inputText id="txtUsuario" value="#{loginController.nombreUsuario}"
+				requiered="true" style="margin: 5px; width : 120px; heigth : 2px" />
+
+			<p:outputLabel for="txtClave" value="Clave" style="color: black" />
+			<p:password id="txtClave" value="#{loginController.contraseña}"
+				requiered="true" style="margin: 5px; width : 120px; heigth : 2px" />
+
+			<p:commandButton value="Ingresar"
+				action="#{loginController.loginControlUser()}" />
+		</p:panelGrid>
+	</h:form>
+
+</h:body>
+</html>

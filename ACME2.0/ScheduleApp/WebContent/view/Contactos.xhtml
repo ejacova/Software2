@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>ScheduleApp</title>
+
+	<h:outputStylesheet library="css" name="index.css" />
+</h:head>
+
+<h:body>
+	<div class="container">
+		<nav class="nav-main">
+
+			<ul class="nav-menu">
+				<h:form>
+					<p:commandButton value="Iniciar sesión"
+						style="margin-align:center;" type="button"
+						update=":form:pacienteDetail"
+						onclick="PF('pacienteDialog').show();" title="View Detail">
+
+						<f:setPropertyActionListener value="#{paciente}"
+							target="#{searchController.paciente}" />
+					</p:commandButton>
+
+					<p:dialog header="Ingrese según sea" style="margin-bottom: 10px;"
+						widgetVar="pacienteDialog" modal="true" showEffect="fade"
+						hideEffect="fade" resizable="false">
+						<p:separator style="margin-top: -15px" />
+						<p:tabView>
+							<p:tab title="Medico">
+								<div align="center">
+									<h:panelGrid cellpadding="5">
+										<p:outputLabel for="txtUsuario2" value="Usuario:"
+											style="color: black; font-size: 22px" />
+										<p:inputText id="txtUsuario2"
+											value="#{searchController.cedulaMed}" requiered="true"
+											style="margin: 5px; width : 140px; " />
+
+										<p:outputLabel for="txtClave2" value="Contraseña:"
+											style="color: black; font-size: 22px" />
+										<p:password id="txtClave2"
+											value="#{searchController.contraseñaMed}" requiered="true"
+											style="margin: 5px; width: 140px; heigth: 2px" />
+
+										<p:commandButton value="Ingresar"
+											style="margin: 10px; width: 90px; height: 40px"
+											action="#{searchController.loginControlMedico()}" />
+									</h:panelGrid>
+								</div>
+							</p:tab>
+							<p:tab title="Paciente">
+								<div align="center">
+									<h:panelGrid cellpadding="5">
+										<p:outputLabel for="txtUsuario" value="Usuario:"
+											style="color: black; font-size: 22px" />
+										<p:inputText id="txtUsuario"
+											value="#{searchController.cedulaPac}" requiered="true"
+											style="margin: 5px; width : 140px; heigth : 2px" />
+
+										<p:outputLabel for="txtClave" value="Contraseña:"
+											style="color: black; font-size: 22px" />
+										<p:password id="txtClave"
+											value="#{searchController.contraseñaPac}" requiered="true"
+											style="margin: 5px; width: 140px; heigth: 2px" />
+
+										<p:commandButton value="Ingresar"
+											style="margin: 10px; width: 90px; height: 40px"
+											action="#{searchController.loginControlPaciente()}" />
+									</h:panelGrid>
+								</div>
+							</p:tab>
+							<p:tab title="Secretaria">
+								<div align="center">
+									<h:panelGrid cellpadding="5">
+										<p:outputLabel for="txtUsuario3" value="Usuario:"
+											style="color: black; font-size: 22px" />
+										<p:inputText id="txtUsuario3"
+											value="#{searchController.cedulaSec}" requiered="true"
+											style="margin: 5px; width : 140px; heigth : 2px" />
+
+										<p:outputLabel for="txtClave3" value="Contraseña:"
+											style="color: black; font-size: 22px" />
+										<p:password id="txtClave3"
+											value="#{searchController.contraseñaSec}" requiered="true"
+											style="margin: 5px; width: 140px; heigth: 2px" />
+
+										<p:commandButton value="Ingresar"
+											style="margin: 10px; width: 90px; height: 40px"
+											action="#{searchController.loginControlSecretaria()}" />
+									</h:panelGrid>
+								</div>
+							</p:tab>
+						</p:tabView>
+					</p:dialog>
+				</h:form>
+			</ul>
+
+			<ul class="nav-menu-right">
+				<li><a href="Index.xhtml">Inicio</a></li>
+				<li><a href="#">Contactos</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<h2 class="intro" align="center">Registre su cita</h2>
+	<div>
+
+
+		<div
+			style="background-color: rgba(98, 112, 113, 0.9); margin-left: 10%; margin-top: 1%; margin-right: 10%; margin-bottom: 2%;">
+			<div class="main-container"
+				style="margin-left: 11%; margin-right: 11%; color: black;">
+
+				<h:form>
+					<p:spacer width="20" />
+					<h:panelGrid columns="2">
+						<p:outputLabel value="Nombre:" style="color: white" />
+						<p:inputText value="#{registroController.paciente.nombrePac}"
+							requiered="true"
+							style="margin-right:2px; width : 250px; heigth : 2px" />
+
+					</h:panelGrid>
+					<br />
+					<h:panelGrid columns="2">
+						<p:outputLabel value="Apellido:" style="color: white" />
+						<p:inputText value="#{registroController.paciente.apellidoPac}"
+							requiered="true"
+							style="margin-right:2px; width : 250px; heigth : 2px" />
+
+					</h:panelGrid>
+					<br />
+					<h:panelGrid columns="2">
+						<p:outputLabel for="txtDNI" value="Cédula:" style="color: white" />
+						<p:inputText value="#{registroController.paciente.cedulaPac}"
+							id="txtDNI" requiered="true"
+							style="margin: 2px; width : 130px; heigth : 2px" />
+					</h:panelGrid>
+					<br />
+					<h:panelGrid columns="2">
+						<p:outputLabel for="inline2" value="Fecha de nacimiento:"
+							style="color: white" />
+						<p:calendar id="inline2"
+							value="#{registroController.paciente.fechaDeNacimiento}"
+							locale="es" showOn="button" navigator="true"
+							pattern="yyyy-MMM-dd" />
+					</h:panelGrid>
+					<br />
+					<h:panelGrid columns="2">
+						<p:outputLabel value="Celular:" style="color: white" />
+						<p:inputText value="#{registroController.paciente.celular}"
+							requiered="true"
+							style="margin-right:2px; width : 130px; heigth : 2px" />
+
+					</h:panelGrid>
+					<br />
+
+					<h:panelGrid columns="2">
+						<p:outputLabel value="Correo Electronico" style="color: white" />
+						<p:inputText value="#{registroController.paciente.correo}"
+							requiered="true"
+							style="margin-right:2px; width : 300px; heigth : 2px" />
+
+					</h:panelGrid>
+					<br />
+
+					<p:outputLabel for="inline" value="Fecha de cita:"
+						style="color: white" />
+
+					<h:panelGrid columns="5">
+
+						<p:calendar id="inline"
+							value="#{registroController.cita.fechaCita}" locale="es"
+							mode="inline" navigator="true" pattern="yyyy-MMM-dd" />
+						<br />
+
+						<p:growl id="msgs" showDetail="true"
+							skipDetailIfEqualsSummary="true" />
+
+						<p:spacer width="50" height="10" />
+
+						<p:panel header="Seleccione el médico" style="margin-bottom:10px">
+							<h:panelGrid columns="2" cellpadding="5">
+								<p:outputLabel for="country" value="Médico: " />
+								<p:selectOneMenu id="country" value=""
+									style="width:350px">
+									<p:ajax listener="#{registroController1.onCountryChange}"
+										update="city" />
+									<f:selectItem itemValue="" noSelectionOption="true" />
+									<f:selectItems value="#{registroController.medicos}" var="m"
+										itemLabel="#{m.nombreMed}" itemValue="#{m.cedulaMed}" />
+								</p:selectOneMenu>
+
+
+
+								<p:outputLabel for="city" value="Hora: " />
+								<p:selectOneMenu id="city"
+									value="#{registroController.cita.horaCita}" style="width:150px">
+									<f:selectItem itemValue="" noSelectionOption="true" />
+									<f:selectItems value="#{registroController.horarios}" var="h"
+										itemLabel="#{h.horaMed}" itemValue="#{h.horaMed}" />
+								</p:selectOneMenu>
+							</h:panelGrid>
+
+						</p:panel>
+					</h:panelGrid>
+
+					<br />
+					<p:commandButton
+						style="padding: 10px 20px; margin-left: 40%; margin-bottom:3% "
+						value="Agendar" update="msgs"
+						action="#{registroController.nuevaCita()}" />
+				</h:form>
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+</h:body>
+</html>

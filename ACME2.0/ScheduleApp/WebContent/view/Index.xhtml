@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>ScheduleApp</title>
+
+	<h:outputStylesheet library="css" name="index.css" />
+</h:head>
+
+<h:body>
+
+	<div class="container">
+		<nav class="nav-main">
+
+			<ul class="nav-menu">
+				<h:form>
+					<p:commandButton value="Iniciar sesión"
+						style="margin-align:center;" type="button"
+						update=":form:pacienteDetail"
+						onclick="PF('pacienteDialog').show();" title="View Detail">
+
+						<f:setPropertyActionListener value="#{paciente}"
+							target="#{searchController.paciente}" />
+					</p:commandButton>
+
+					<p:dialog header="Ingrese según sea" style="margin-bottom: 10px;"
+						widgetVar="pacienteDialog" modal="true" showEffect="fade"
+						hideEffect="fade" resizable="false">
+						<p:separator style="margin-top: -15px" />
+						<p:tabView>
+							<p:tab title="Medico">
+								<div align="center">
+									<h:panelGrid cellpadding="5">
+										<p:outputLabel for="txtUsuario2" value="Usuario:"
+											style="color: black; font-size: 22px" />
+										<p:inputText id="txtUsuario2"
+											value="#{searchController.cedulaMed}" requiered="true"
+											style="margin: 5px; width : 140px; " />
+
+										<p:outputLabel for="txtClave2" value="Contraseña:"
+											style="color: black; font-size: 22px" />
+										<p:password id="txtClave2"
+											value="#{searchController.contraseñaMed}" requiered="true"
+											style="margin: 5px; width: 140px; heigth: 2px" />
+
+										<p:commandButton value="Ingresar"
+											style="margin: 10px; width: 90px; height: 40px"
+											action="#{searchController.loginControlMedico()}" />
+									</h:panelGrid>
+								</div>
+							</p:tab>
+							<p:tab title="Paciente">
+								<div align="center">
+									<h:panelGrid cellpadding="5">
+										<p:outputLabel for="txtUsuario" value="Usuario:"
+											style="color: black; font-size: 22px" />
+										<p:inputText id="txtUsuario"
+											value="#{searchController.cedulaPac}" requiered="true"
+											style="margin: 5px; width : 140px; heigth : 2px" />
+
+										<p:outputLabel for="txtClave" value="Contraseña:"
+											style="color: black; font-size: 22px" />
+										<p:password id="txtClave"
+											value="#{searchController.contraseñaPac}" requiered="true"
+											style="margin: 5px; width: 140px; heigth: 2px" />
+
+										<p:commandButton value="Ingresar"
+											style="margin: 10px; width: 90px; height: 40px"
+											action="#{searchController.loginControlPaciente()}" />
+									</h:panelGrid>
+								</div>
+							</p:tab>
+							<p:tab title="Secretaria">
+								<div align="center">
+									<h:panelGrid cellpadding="5">
+										<p:outputLabel for="txtUsuario3" value="Usuario:"
+											style="color: black; font-size: 22px" />
+										<p:inputText id="txtUsuario3"
+											value="#{searchController.cedulaSec}" requiered="true"
+											style="margin: 5px; width : 140px; heigth : 2px" />
+
+										<p:outputLabel for="txtClave3" value="Contraseña:"
+											style="color: black; font-size: 22px" />
+										<p:password id="txtClave3"
+											value="#{searchController.contraseñaSec}" requiered="true"
+											style="margin: 5px; width: 140px; heigth: 2px" />
+
+										<p:commandButton value="Ingresar"
+											style="margin: 10px; width: 90px; height: 40px"
+											action="#{searchController.loginControlSecretaria()}" />
+									</h:panelGrid>
+								</div>
+							</p:tab>
+						</p:tabView>
+					</p:dialog>
+				</h:form>
+			</ul>
+
+			<ul class="nav-menu-right">
+				<li><a href="#">Inicio</a></li>
+				<li><a href="Contactos.xhtml">Contactos</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div align="center">
+
+		<h2 class="intro">ScheduleApp - PyramidTech</h2>
+
+	</div>
+
+	<div style="width: 100%;">
+
+		<DIV id="together" align="center"
+			style="float: left; margin-left: 12%; color: black; margin-top: 5%;">
+			<h2>Realiza tu registro facil y rapido</h2>
+			<BR />
+			<h2>Disponibilidad de citas virtuales</h2>
+			<BR />
+			<h2>Medicos especializados</h2>
+
+		</DIV>
+
+		<div id="together" align="center"
+			style="background-color: rgba(98, 112, 113, 0.8); margin-left: 51%; color: white; margin-right: 1%;">
+			<BR />
+			<h3 style="margin-left: 3px; margin-right: 3px;">¡Si desea
+				agendar una cita primero consulte si ya se encuentra registrado!</h3>
+
+			<h:form id="form">
+				<p:spacer width="30" />
+				<p:growl id="growl" sticky="true" showDetail="true" />
+				<p:outputLabel for="txtCedula" value="Cédula:" style="color: white" />
+				<p:inputText id="txtCedula" value="#{searchController.cedulaPac}"
+					requiered="true" style="margin: 5px; width : 120px; heigth : 2px" />
+
+				<p:commandButton value="Consultar"
+					style="margin: 2px; width: 90px; height: 25px" update="form"
+					action="#{searchController.memberControlUser()}" />
+			</h:form>
+
+			<img src="../resources/img/logoP.PNG"></img>
+
+		</div>
+
+	</div>
+
+
+
+</h:body>
+</html>

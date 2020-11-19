@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>ScheduleApp</title>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+	<h:outputStylesheet library="css" name="user.css" />
+	
+	<style type="text/css">
+    .ui-paginator a {
+        margin-right: 5px;
+    }
+</style>
+</h:head>
+
+<h:body>
+	<div id="sidemenu" class="menu-collapsed">
+		<div id="header">
+			<div id="title">
+				<span>ScheduleApp</span>
+			</div>
+		</div>
+
+		<div id="profile">
+			<div id="photo">
+				<IMG alt="" src="../resources/img/user.png" class="user" />
+			</div>
+			<div id="name">
+				<span>Secretary</span>
+			</div>
+		</div>
+
+		<div id="menu-items">
+
+			<div class="item">
+				<a href="Scitas.xhtml">
+					<div class="icon">
+						<IMG src="../resources/img/citas.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Citas</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="itemseparator"></div>
+
+
+			<div class="item">
+				<a href="Sagendar.xhtml">
+					<div class="icon">
+						<IMG src="../resources/img/calendario.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Agendar</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="itemseparator"></div>
+			
+			<div class="item">
+				<a href="Sagregar.xhtml">
+					<div class="icon">
+						<IMG src="../resources/img/newuser.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Agregar Paciente</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="itemseparator"></div>
+			
+			<div class="item">
+				<a href="#">
+					<div class="icon">
+						<IMG src="../resources/img/historial.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Historial</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="itemseparator"></div>
+			
+			<div class="item">
+				<a href="Index.xhtml">
+					<div class="icon">
+						<IMG src="../resources/img/cerrar.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Cerrar sesion</span>
+					</div>
+				</a>
+			</div>
+
+		</div>
+	</div>
+	<p:spacer height="5" width="5"></p:spacer>
+	<h2 align="center">¡Historial de pacientes!</h2>
+	<div class="main-container" style="margin-left: 20%; margin-right:3%; margin-top:3%">
+	<h:form>
+    <p:dataTable id="tbl" var="paciente" value="#{dataExporter.pacientes}"
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                 paginator="true" rows="10" style="margin-bottom:20px">
+ 
+        <f:facet name="{Exporters}">
+            <div style="float:right;padding-top: 5px;">
+                <h:commandLink>
+                    <p:graphicImage name="/img/excel.png" width="30"/>
+                    <p:dataExporter type="xlsxstream" target="tbl" fileName="pacientes"/>
+                </h:commandLink>              
+                <h:commandLink>
+                    <p:graphicImage name="/img/pdf.png" width="18"/>
+                    <p:dataExporter type="pdf" target="tbl" fileName="pacientes"/>
+                </h:commandLink>
+            </div>
+        </f:facet>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Cédula" />
+            </f:facet>
+            <h:outputText value="#{paciente.cedulaPac}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Nombre"/>
+            </f:facet>
+            <h:outputText value="#{paciente.nombrePac}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Apellido" />
+            </f:facet>
+            <h:outputText value="#{paciente.apellidoPac}" />
+        </p:column>
+ 
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Celular" />
+            </f:facet>
+            <h:outputText value="#{paciente.celular}" />
+        </p:column>
+    </p:dataTable>
+    </h:form>
+	</div>
+</h:body>
+</html>

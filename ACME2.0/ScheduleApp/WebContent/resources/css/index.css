@@ -1,0 +1,122 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+	color:white;
+	width: 100%;
+    background-color: white;
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+    background-image: url(https://staticsnews.medsbla.com/news-es/wp-content/uploads/2018/12/09114745/0d7610274fa7dfe7f6c880aa102f43e9a2e7f905-1024x576.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 110%;
+    
+    
+}
+
+body::-webkit-scrollbar {
+    width: 0.7rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #131B22;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+
+.intro{
+    text-align: c;
+    color: black;
+    width: 100%;
+    padding: 20px 10px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 50px;
+}
+
+a{
+    
+    color:black;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.container{
+    width: 100%;
+    margin: auto;
+}
+
+/* Navegation style */
+
+.nav-main {
+	
+    background-color:#3BBECF;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 20px 10px;
+}
+
+.nav-brand {
+
+    width: 60px;
+
+}
+
+.nav-main ul{
+    display: flex;
+}
+
+.nav-main ul li{
+    
+    padding: 15px;
+}
+
+.nav-main ul li a{
+    
+    color: white;
+}
+
+.nav-main ul li:hover{
+    background-color: #AFC7CA;
+}
+
+.nav-main ul li.buscar:hover{
+    background-color: #C8E8F6;
+}
+.nav-main ul li.login:hover{
+    background-color: #C8E8F6;
+}
+
+.nav-main ul.nav-menu{
+    flex: 1;
+    margin-left: 20px;
+    
+}
+
+.loger{
+    color: white;
+    background-color:#414141;
+    padding: 10px 10px;
+    border-radius: 10%;
+}
+
+.loger:hover{
+    color: black;
+    background-color:#D0D0D0;
+}
+
+.backimg{
+	background-image: url('../img/enfermera.jpg');
+}
+
+

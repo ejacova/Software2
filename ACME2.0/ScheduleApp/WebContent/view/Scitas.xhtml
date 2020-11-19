@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>ScheduleApp</title>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+	<h:outputStylesheet library="css" name="user.css" />
+</h:head>
+
+<h:body>
+	<div id="sidemenu" class="menu-collapsed">
+		<div id="header">
+			<div id="title">
+				<span>ScheduleApp</span>
+			</div>
+		</div>
+
+		<div id="profile">
+			<div id="photo">
+				<IMG alt="" src="../resources/img/user.png" class="user" />
+			</div>
+			<div id="name">
+				<span>Secretary</span>
+			</div>
+		</div>
+
+		<div id="menu-items">
+
+			<div class="item">
+				<a href="#">
+					<div class="icon">
+						<IMG src="../resources/img/citas.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Citas</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="itemseparator"></div>
+
+
+			<div class="item">
+				<a href="Sagendar.xhtml">
+					<div class="icon">
+						<IMG src="../resources/img/calendario.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Agendar</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="itemseparator"></div>
+
+			<div class="item">
+				<a href="Sagregar.xhtml">
+					<div class="icon">
+						<IMG src="../resources/img/newuser.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Agregar Paciente</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="itemseparator"></div>
+
+			<div class="item">
+				<a href="Shistorial.xhtml">
+					<div class="icon">
+						<IMG src="../resources/img/historial.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Historial</span>
+					</div>
+				</a>
+			</div>
+
+			<div class="itemseparator"></div>
+
+			<div class="item">
+				<a href="Index.xhtml">
+					<div class="icon">
+						<IMG src="../resources/img/cerrar.png" alt="" class="agendar" />
+					</div>
+					<div class="tittle">
+						<span>Cerrar sesion</span>
+					</div>
+				</a>
+			</div>
+
+		</div>
+	</div>
+	<p:spacer height="5" width="5"></p:spacer>
+	<h2 align="center">¡Gestiona las citas!</h2>
+	<div
+		style="margin-left: 20%; margin-top: 3%; margin-right: 3%; margin-bottom: 2%;">
+
+		<h:form id="form">
+			<p:dataTable var="cita" value="#{registroController.citas}">
+				<p:column headerText="Nombre paciente: ">
+					<h:outputText value="#{cita.paciente.nombrePac}" />
+				</p:column>
+
+				<p:column headerText="Fecha cita:">
+					<h:outputText value="#{cita.fechaCita}" />
+				</p:column>
+
+				<p:column headerText="Hora: ">
+					<h:outputText value="#{cita.horaCita}" />
+				</p:column>
+
+				<p:column headerText="Nombre medico: ">
+					<h:outputText value="#{cita.medico.nombreMed}" />
+				</p:column>
+
+				<p:column headerText="Accion">
+					<h:panelGrid>
+						<p:commandButton value="Reprogramar"
+							action="#{registroController.reprogramarCita()}"
+							update="form">
+						</p:commandButton>
+
+						<p:commandButton value="Eliminar"
+							action="#{registroController.eliminarCita()}"
+							update="form">
+						</p:commandButton>
+					</h:panelGrid>
+				</p:column>
+			</p:dataTable>
+
+		</h:form>
+
+
+	</div>
+</h:body>
+</html>
